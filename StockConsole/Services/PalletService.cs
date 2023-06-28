@@ -20,11 +20,14 @@ namespace StockConsole.Services
                 .GroupBy(pallet => pallet.ExpirationDate)
                 .OrderBy(group => group.Key);
 
-            var PalletsSortInGroup = groups.ToDictionary(group => group.Key, group => group.OrderBy(pallet=> pallet.Weight));
+            var PalletsSortInGroup = groups.ToDictionary(
+                group => group.Key,
+                group => group.OrderBy(pallet => pallet.Weight)
+                );
 
             return PalletsSortInGroup;
         }
-
+        
         public IEnumerable<Pallet> GetThreePalletsWithMoreDate()
         {
             var pallets = repository.GetAll();

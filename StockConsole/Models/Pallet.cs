@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockConsole.Exceptions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace StockConsole.Models
         public void Add(Box box)
         {
             if (box.Width > Width || box.Depth > Depth)
-                throw new Exception("Box is large");
+                throw new InvalidAddedBoxException("Box is large");
 
             Boxes.Add(box);
 

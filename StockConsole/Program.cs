@@ -1,7 +1,7 @@
 ﻿using StockConsole.DAL.Repositories;
 using StockConsole.Services;
 
-PalletRepository palletRepository = new PalletRepository();
+PalletRepository palletRepository = new PalletRepository(PalletRepository.initData());
 
 PalletService palletService = new PalletService(palletRepository);
 

@@ -6,13 +6,13 @@ namespace StockConsole.DAL.Repositories
     public class PalletRepository : IRepository<Pallet>
     {
         List<Pallet> pallets = new List<Pallet>();
-        public PalletRepository() { initData(); }
+        public PalletRepository(List<Pallet> pallets) { this.pallets = pallets; }
         public IEnumerable<Pallet> GetAll()
         {
             return pallets;
         }
 
-        private void initData()
+        public static List<Pallet> initData()
         {
             List<Box> boxes0 = new List<Box>()
             {
@@ -62,11 +62,7 @@ namespace StockConsole.DAL.Repositories
             };
             Pallet pl4 = new Pallet(4, 30, 30, 30, boxes4);
 
-            pallets.Add(pl0);
-            pallets.Add(pl1);
-            pallets.Add(pl2);
-            pallets.Add(pl3);
-            pallets.Add(pl4);
+            return new List<Pallet> { pl0, pl1, pl2, pl3, pl4 };
         }
     }
 }
